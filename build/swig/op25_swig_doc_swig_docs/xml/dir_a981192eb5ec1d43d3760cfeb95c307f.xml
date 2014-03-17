@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="dir_a981192eb5ec1d43d3760cfeb95c307f" kind="dir">
+    <compoundname>/home/luizrenault/new/gr-op25/include/op25</compoundname>
+    <innerfile refid="api_8h">api.h</innerfile>
+    <innerfile refid="decoder__bf_8h">decoder_bf.h</innerfile>
+    <innerfile refid="fsk4__slicer_8h">fsk4_slicer.h</innerfile>
+    <innerfile refid="op25__fsk4__demod__ff_8h">op25_fsk4_demod_ff.h</innerfile>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/luizrenault/new/gr-op25/include/op25/"/>
+  </compounddef>
+</doxygen>

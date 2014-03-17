@@ -1,0 +1,30 @@
+<block>
+  <name>Fsk4 demod ff</name>
+  <key>op25_fsk4_demod_ff</key>
+  <category>OP25</category>
+  <import>import op25</import>
+  <make>op25.fsk4_demod_ff($queue, $sample_rate, $symbol_rate)</make>
+  <param>
+    <name>Queue</name>
+    <key>queue</key>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Sample_rate</name>
+    <key>sample_rate</key>
+    <type>float</type>
+  </param>
+  <param>
+    <name>Symbol_rate</name>
+    <key>symbol_rate</key>
+    <type>float</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+</block>

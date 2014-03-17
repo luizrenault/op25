@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="namespacegr_1_1op25" kind="namespace">
+    <compoundname>gr::op25</compoundname>
+    <innerclass refid="classgr_1_1op25_1_1decoder__bf" prot="public">gr::op25::decoder_bf</innerclass>
+    <innerclass refid="classgr_1_1op25_1_1fsk4__slicer" prot="public">gr::op25::fsk4_slicer</innerclass>
+    <innerclass refid="classgr_1_1op25_1_1op25__fsk4__demod__ff" prot="public">gr::op25::op25_fsk4_demod_ff</innerclass>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <location file="/home/luizrenault/new/gr-op25/include/op25/decoder_bf.h" line="29" column="1"/>
+  </compounddef>
+</doxygen>

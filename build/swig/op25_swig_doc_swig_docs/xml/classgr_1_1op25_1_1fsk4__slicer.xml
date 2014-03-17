@@ -1,0 +1,73 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.4">
+  <compounddef id="classgr_1_1op25_1_1fsk4__slicer" kind="class" prot="public">
+    <compoundname>gr::op25::fsk4_slicer</compoundname>
+    <basecompoundref prot="public" virt="virtual">sync_block</basecompoundref>
+    <includes refid="fsk4__slicer_8h" local="no">fsk4_slicer.h</includes>
+      <sectiondef kind="public-type">
+      <memberdef kind="typedef" id="classgr_1_1op25_1_1fsk4__slicer_1ae3608b963df8e239c348a903540c5bd0" prot="public" static="no">
+        <type>boost::shared_ptr&lt; <ref refid="classgr_1_1op25_1_1fsk4__slicer" kindref="compound">fsk4_slicer</ref> &gt;</type>
+        <definition>typedef boost::shared_ptr&lt;fsk4_slicer&gt; gr::op25::fsk4_slicer::sptr</definition>
+        <argsstring></argsstring>
+        <name>sptr</name>
+        <briefdescription>
+        </briefdescription>
+        <detaileddescription>
+        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/luizrenault/new/gr-op25/include/op25/fsk4_slicer.h" line="39" column="1" bodyfile="/home/luizrenault/new/gr-op25/include/op25/fsk4_slicer.h" bodystart="39" bodyend="-1"/>
+      </memberdef>
+      </sectiondef>
+      <sectiondef kind="public-static-func">
+      <memberdef kind="function" id="classgr_1_1op25_1_1fsk4__slicer_1a416fd27c096ac880520153c6cbd22454" prot="public" static="yes" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type><ref refid="classgr_1_1op25_1_1fsk4__slicer_1ae3608b963df8e239c348a903540c5bd0" kindref="member">sptr</ref></type>
+        <definition>static sptr gr::op25::fsk4_slicer::make</definition>
+        <argsstring>(const std::vector&lt; float &gt; &amp;slice_levels)</argsstring>
+        <name>make</name>
+        <param>
+          <type>const std::vector&lt; float &gt; &amp;</type>
+          <declname>slice_levels</declname>
+        </param>
+        <briefdescription>
+<para>Return a shared_ptr to a new instance of <ref refid="classgr_1_1op25_1_1fsk4__slicer" kindref="compound">op25::fsk4_slicer</ref>. </para>        </briefdescription>
+        <detaileddescription>
+<para>To avoid accidental use of raw pointers, <ref refid="classgr_1_1op25_1_1fsk4__slicer" kindref="compound">op25::fsk4_slicer</ref>&apos;s constructor is in a private implementation class. <ref refid="classgr_1_1op25_1_1fsk4__slicer_1a416fd27c096ac880520153c6cbd22454" kindref="member">op25::fsk4_slicer::make</ref> is the public interface for creating new instances. </para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="/home/luizrenault/new/gr-op25/include/op25/fsk4_slicer.h" line="49" column="1"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+<para>&lt;+description of block+&gt; </para>    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <inheritancegraph>
+      <node id="4">
+        <label>gr::op25::fsk4_slicer</label>
+        <link refid="classgr_1_1op25_1_1fsk4__slicer"/>
+        <childnode refid="5" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="5">
+        <label>gr::sync_block</label>
+      </node>
+    </inheritancegraph>
+    <collaborationgraph>
+      <node id="6">
+        <label>gr::op25::fsk4_slicer</label>
+        <link refid="classgr_1_1op25_1_1fsk4__slicer"/>
+        <childnode refid="7" relation="public-inheritance">
+        </childnode>
+      </node>
+      <node id="7">
+        <label>gr::sync_block</label>
+      </node>
+    </collaborationgraph>
+    <location file="/home/luizrenault/new/gr-op25/include/op25/fsk4_slicer.h" line="37" column="1" bodyfile="/home/luizrenault/new/gr-op25/include/op25/fsk4_slicer.h" bodystart="36" bodyend="50"/>
+    <listofallmembers>
+      <member refid="classgr_1_1op25_1_1fsk4__slicer_1a416fd27c096ac880520153c6cbd22454" prot="public" virt="non-virtual"><scope>gr::op25::fsk4_slicer</scope><name>make</name></member>
+      <member refid="classgr_1_1op25_1_1fsk4__slicer_1ae3608b963df8e239c348a903540c5bd0" prot="public" virt="non-virtual"><scope>gr::op25::fsk4_slicer</scope><name>sptr</name></member>
+    </listofallmembers>
+  </compounddef>
+</doxygen>
