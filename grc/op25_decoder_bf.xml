@@ -2,7 +2,7 @@
   <name>Decoder bf</name>
   <key>op25_decoder_bf</key>
   <category>OP25</category>
-  <import>import op25</import>
+  <import>from gnuradio import op25</import>
   <make>op25.decoder_bf()</make>
   <sink>
     <name>in</name>

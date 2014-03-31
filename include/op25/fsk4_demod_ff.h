@@ -19,11 +19,12 @@
  */
 
 
-#ifndef INCLUDED_OP25_FSK4_SLICER_H
-#define INCLUDED_OP25_FSK4_SLICER_H
+#ifndef INCLUDED_OP25_FSK4_DEMOD_FF_H
+#define INCLUDED_OP25_FSK4_DEMOD_FF_H
 
 #include <op25/api.h>
-#include <gnuradio/sync_block.h>
+#include <gnuradio/block.h>
+#include <gnuradio/msg_queue.h>
 
 namespace gr {
   namespace op25 {
@@ -33,24 +34,24 @@ namespace gr {
      * \ingroup op25
      *
      */
-    class OP25_API fsk4_slicer : virtual public gr::sync_block
+    class OP25_API fsk4_demod_ff : virtual public gr::block
     {
      public:
-      typedef boost::shared_ptr<fsk4_slicer> sptr;
+      typedef boost::shared_ptr<fsk4_demod_ff> sptr;
 
       /*!
-       * \brief Return a shared_ptr to a new instance of op25::fsk4_slicer.
+       * \brief Return a shared_ptr to a new instance of op25::fsk4_demod_ff.
        *
-       * To avoid accidental use of raw pointers, op25::fsk4_slicer's
+       * To avoid accidental use of raw pointers, op25::fsk4_demod_ff's
        * constructor is in a private implementation
-       * class. op25::fsk4_slicer::make is the public interface for
+       * class. op25::fsk4_demod_ff::make is the public interface for
        * creating new instances.
        */
-      static sptr make(const std::vector<float> &slice_levels);
+      static sptr make(gr::msg_queue::sptr &queue, float sample_rate, float symbol_rate);
     };
 
   } // namespace op25
 } // namespace gr
 
-#endif /* INCLUDED_OP25_FSK4_SLICER_H */
+#endif /* INCLUDED_OP25_FSK4_DEMOD_FF_H */
 

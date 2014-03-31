@@ -53,7 +53,7 @@ static const int MAX_OUT = 1;	// maximum number of output streams
  * The private constructor
  */
 fsk4_slicer_fb_impl::fsk4_slicer_fb_impl(const std::vector<float> &slice_levels)
-: gr::sync_block("fsk4_slicer",
+: gr::sync_block("fsk4_slicer_fb",
 		gr::io_signature::make(MIN_IN, MAX_IN, sizeof(float)),
 		gr::io_signature::make(MIN_OUT, MAX_OUT, sizeof(unsigned char)))
 {

@@ -23,7 +23,7 @@
 #endif
 
 #include <gnuradio/io_signature.h>
-#include "op25_fsk4_demod_ff_impl.h"
+#include "fsk4_demod_ff_impl.h"
 
 using namespace std;
 
@@ -170,18 +170,17 @@ static const float TAPS[NSTEPS+1][NTAPS] = {
 };
 
 
-op25_fsk4_demod_ff::sptr
-op25_fsk4_demod_ff::make(gr::msg_queue::sptr queue, float sample_rate, float symbol_rate)
+fsk4_demod_ff::sptr
+fsk4_demod_ff::make(gr::msg_queue::sptr &queue, float sample_rate, float symbol_rate)
 {
-	return gnuradio::get_initial_sptr
-			(new op25_fsk4_demod_ff_impl(queue, sample_rate, symbol_rate));
+	return gnuradio::get_initial_sptr(new fsk4_demod_ff_impl(queue, sample_rate, symbol_rate));
 }
 
 /*
  * The private constructor
  */
-op25_fsk4_demod_ff_impl::op25_fsk4_demod_ff_impl(gr::msg_queue::sptr queue, float sample_rate_Hz, float symbol_rate_Hz)
-: gr::block("op25_fsk4_demod_ff",
+fsk4_demod_ff_impl::fsk4_demod_ff_impl(gr::msg_queue::sptr &queue, float sample_rate_Hz, float symbol_rate_Hz)
+: gr::block("fsk4_demod_ff",
 		gr::io_signature::make(1, 1, sizeof(float)),
 		gr::io_signature::make(1, 1, sizeof(float))),
 		d_block_rate(sample_rate_Hz / symbol_rate_Hz),
@@ -201,12 +200,12 @@ op25_fsk4_demod_ff_impl::op25_fsk4_demod_ff_impl(gr::msg_queue::sptr queue, floa
 /*
  * Our virtual destructor.
  */
-op25_fsk4_demod_ff_impl::~op25_fsk4_demod_ff_impl()
+fsk4_demod_ff_impl::~fsk4_demod_ff_impl()
 {
 }
 
 void
-op25_fsk4_demod_ff_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
+fsk4_demod_ff_impl::forecast (int noutput_items, gr_vector_int &ninput_items_required)
 {
 	/* <+forecast+> e.g. ninput_items_required[0] = noutput_items */
 	const int nof_samples_reqd = static_cast<int>(ceil(d_block_rate * noutput_items));
@@ -214,7 +213,7 @@ op25_fsk4_demod_ff_impl::forecast (int noutput_items, gr_vector_int &ninput_item
 }
 
 int
-op25_fsk4_demod_ff_impl::general_work (int noutput_items,
+fsk4_demod_ff_impl::general_work (int noutput_items,
 		gr_vector_int &ninput_items,
 		gr_vector_const_void_star &input_items,
 		gr_vector_void_star &output_items)
@@ -239,7 +238,7 @@ op25_fsk4_demod_ff_impl::general_work (int noutput_items,
 	return n;
 }
 
-void op25_fsk4_demod_ff_impl::send_frequency_correction()
+void fsk4_demod_ff_impl::send_frequency_correction()
 {
    double arg1, arg2;
 
@@ -262,7 +261,7 @@ void op25_fsk4_demod_ff_impl::send_frequency_correction()
    msg.reset();
 }
 
-bool op25_fsk4_demod_ff_impl::tracking_loop_mmse(float input, float *output)
+bool fsk4_demod_ff_impl::tracking_loop_mmse(float input, float *output)
 {
    d_symbol_clock += d_symbol_time;
 

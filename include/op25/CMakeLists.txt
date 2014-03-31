@@ -22,8 +22,7 @@
 ########################################################################
 install(FILES
     api.h
-    fsk4_slicer.h
     decoder_bf.h
-    op25_fsk4_demod_ff.h
-    fsk4_slicer_fb.h DESTINATION include/op25
+    fsk4_slicer_fb.h
+    fsk4_demod_ff.h DESTINATION include/op25
 )

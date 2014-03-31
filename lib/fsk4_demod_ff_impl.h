@@ -18,38 +18,50 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_OP25_OP25_FSK4_DEMOD_FF_IMPL_H
-#define INCLUDED_OP25_OP25_FSK4_DEMOD_FF_IMPL_H
+#ifndef INCLUDED_OP25_FSK4_DEMOD_FF_IMPL_H
+#define INCLUDED_OP25_FSK4_DEMOD_FF_IMPL_H
 
-#include <op25/op25_fsk4_demod_ff.h>
-
-#include <gnuradio/msg_queue.h>
+#include <op25/fsk4_demod_ff.h>
 
 namespace gr {
 namespace op25 {
 
-class op25_fsk4_demod_ff_impl : public op25_fsk4_demod_ff
+
+class fsk4_demod_ff_impl : public fsk4_demod_ff
 {
 private:
 	// Nothing to declare in this block.
 
 	const float d_block_rate;
-
 	boost::scoped_array<float> d_history;
-
 	size_t d_history_last;
-
 	gr::msg_queue::sptr d_queue;
-
 	double d_symbol_clock;
-
 	double d_symbol_spread;
-
 	const float d_symbol_time;
-
 	double fine_frequency_correction;
-
 	double coarse_frequency_correction;
+
+public:
+	fsk4_demod_ff_impl(gr::msg_queue::sptr &queue, float sample_rate_Hz, float symbol_rate_Hz);
+	~fsk4_demod_ff_impl();
+
+	// Where all the action really happens
+	void forecast (int noutput_items, gr_vector_int &ninput_items_required);
+
+	int general_work(int noutput_items,
+			gr_vector_int &ninput_items,
+			gr_vector_const_void_star &input_items,
+			gr_vector_void_star &output_items);
+
+
+	/**
+	 * Expose class to public ctor. Create a new instance of
+	 * fsk4_demod_ff and wrap it in a shared_ptr. This is
+	 * effectively the public constructor.
+	 */
+	//friend fsk4_demod_ff::sptr make_fsk4_demod_ff(gr::msg_queue::sptr &queue, float &sample_rate, float &symbol_rate);
+
 
 	/**
 	 * Called when we want the input frequency to be adjusted.
@@ -61,21 +73,11 @@ private:
 	 */
 	bool tracking_loop_mmse(float input, float *output);
 
-public:
-	op25_fsk4_demod_ff_impl(gr::msg_queue::sptr queue, float sample_rate, float symbol_rate);
-	~op25_fsk4_demod_ff_impl();
-
-	// Where all the action really happens
-	void forecast (int noutput_items, gr_vector_int &ninput_items_required);
-
-	int general_work(int noutput_items,
-			gr_vector_int &ninput_items,
-			gr_vector_const_void_star &input_items,
-			gr_vector_void_star &output_items);
+	
 };
 
 } // namespace op25
 } // namespace gr
 
-#endif /* INCLUDED_OP25_OP25_FSK4_DEMOD_FF_IMPL_H */
+#endif /* INCLUDED_OP25_FSK4_DEMOD_FF_IMPL_H */
 

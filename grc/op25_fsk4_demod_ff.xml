@@ -2,7 +2,7 @@
   <name>Fsk4 demod ff</name>
   <key>op25_fsk4_demod_ff</key>
   <category>OP25</category>
-  <import>import op25</import>
+  <import>from gnuradio import op25</import>
   <make>op25.fsk4_demod_ff($queue, $sample_rate, $symbol_rate)</make>
   <param>
     <name>Queue</name>

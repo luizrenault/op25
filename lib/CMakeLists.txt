@@ -24,9 +24,7 @@ include(GrPlatform) #define LIB_SUFFIX
 
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
-
 list(APPEND op25_sources
-    fsk4_slicer_impl.cc
     decoder_bf_impl.cc
     data_unit.cc
     data_unit_handler.cc
@@ -49,8 +47,8 @@ list(APPEND op25_sources
     software_imbe_decoder.cc
     offline_imbe_decoder.cc
     vc55_imbe_decoder.cc
-    op25_fsk4_demod_ff_impl.cc
     fsk4_slicer_fb_impl.cc
+    fsk4_demod_ff_impl.cc
 )
 
 add_library(gnuradio-op25 SHARED ${op25_sources})
