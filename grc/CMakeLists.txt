@@ -20,5 +20,6 @@
 install(FILES
     op25_fsk4_slicer.xml
     op25_decoder_bf.xml
-    op25_op25_fsk4_demod_ff.xml DESTINATION share/gnuradio/grc/blocks
+    op25_op25_fsk4_demod_ff.xml
+    op25_fsk4_slicer_fb.xml DESTINATION share/gnuradio/grc/blocks
 )

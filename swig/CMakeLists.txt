@@ -44,7 +44,7 @@ GR_SWIG_MAKE(op25_swig op25_swig.i)
 ########################################################################
 # Install the build swig module
 ########################################################################
-GR_SWIG_INSTALL(TARGETS op25_swig DESTINATION ${GR_PYTHON_DIR}/op25)
+GR_SWIG_INSTALL(TARGETS op25_swig DESTINATION ${GR_PYTHON_DIR}/gnuradio/op25)
 
 ########################################################################
 # Install swig .i files for development

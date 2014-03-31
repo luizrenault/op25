@@ -24,6 +24,8 @@
 
 #include <op25/api.h>
 #include <gnuradio/block.h>
+#include <gnuradio/msg_queue.h>
+
 
 namespace gr {
   namespace op25 {
@@ -47,6 +49,8 @@ namespace gr {
        * creating new instances.
        */
       static sptr make();
+
+      virtual void set_msgq(gr::msg_queue::sptr msgq)=0;
     };
 
   } // namespace op25

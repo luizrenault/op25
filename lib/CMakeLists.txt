@@ -50,6 +50,7 @@ list(APPEND op25_sources
     offline_imbe_decoder.cc
     vc55_imbe_decoder.cc
     op25_fsk4_demod_ff_impl.cc
+    fsk4_slicer_fb_impl.cc
 )
 
 add_library(gnuradio-op25 SHARED ${op25_sources})

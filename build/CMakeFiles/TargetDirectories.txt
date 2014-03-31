@@ -1,9 +1,0 @@
-/home/luizrenault/new/gr-op25/build/swig/CMakeFiles/_op25_swig.dir
-/home/luizrenault/new/gr-op25/build/swig/CMakeFiles/_op25_swig_doc_tag.dir
-/home/luizrenault/new/gr-op25/build/swig/CMakeFiles/_op25_swig_swig_tag.dir
-/home/luizrenault/new/gr-op25/build/lib/CMakeFiles/gnuradio-op25.dir
-/home/luizrenault/new/gr-op25/build/apps/CMakeFiles/pygen_apps_9a6dd.dir
-/home/luizrenault/new/gr-op25/build/python/CMakeFiles/pygen_python_6224d.dir
-/home/luizrenault/new/gr-op25/build/swig/CMakeFiles/pygen_swig_c6ee4.dir
-/home/luizrenault/new/gr-op25/build/lib/CMakeFiles/test-op25.dir
-/home/luizrenault/new/gr-op25/build/CMakeFiles/uninstall.dir
