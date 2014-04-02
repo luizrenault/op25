@@ -116,7 +116,7 @@ decoder_ff_impl::general_work (int noutput_items,
 		if(n < noutput_items) {
 			fill(out + n, out + noutput_items, 0.0);
 		}
-		return noutput_items;
+		return n;
 
 	} catch(const std::exception& x) {
 		cerr << x.what() << endl;
@@ -204,7 +204,6 @@ void decoder_ff_impl::receive_symbol(dibit d)
 		if(48 <= frame_hdr_sz) {
 			d_frame_hdr.erase(d_frame_hdr.begin(), d_frame_hdr.begin() + (frame_hdr_sz - 48));
 			if(correlated()) {
-				cerr << "SYNCHRONIZED" << endl;
 				d_state = IDENTIFYING;
 			}
 		}
@@ -212,10 +211,8 @@ void decoder_ff_impl::receive_symbol(dibit d)
 	case IDENTIFYING:
 		if(114 == frame_hdr_sz) {
 			if(identified()) {
-				cerr << "IDENTIFIED" << endl;
 				d_state = READING;
 			} else {
-				cerr << "NOT IDENTIFIED" << endl;
 				d_state = SYNCHRONIZING;
 			}
 		}
@@ -228,7 +225,6 @@ void decoder_ff_impl::receive_symbol(dibit d)
 			data_unit_sptr null;
 			d_data_unit = null;
 			d_state = SYNCHRONIZING;
-			cerr << "READ" << endl;
 		}
 		break;
 	}

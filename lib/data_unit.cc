@@ -29,6 +29,7 @@
 #include <tdu.h>
 #include <tsbk.h>
 #include <op25_yank.h>
+#include <iostream>
 
 using namespace std;
 
@@ -37,6 +38,10 @@ data_unit::make_data_unit(const_bit_queue& frame_body)
 {
    data_unit_sptr d;
    uint8_t duid = extract(frame_body, 60, 64);
+   uint8_t duidparity = extract(frame_body, 113, 114);
+   if(duid==0 && duidparity){
+	   duid=0x0a;
+   }
    switch(duid) {
    case 0x0:
       d = data_unit_sptr(new hdu(frame_body));
