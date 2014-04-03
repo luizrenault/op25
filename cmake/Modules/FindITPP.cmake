@@ -1,54 +1,36 @@
-# - Find ITPP
-# Find the native ITPP includes and library
-# This module defines
-# ITPP_INCLUDE_DIR, where to find itpp/itbase.h, etc.
-# ITPP_LIBRARIES, the libraries needed to use ITPP.
-# ITPP_FOUND, If false, do not try to use ITPP.
-# also defined, but not for general use are
-# ITPP_LIBRARY, where to find the ITPP library.
+INCLUDE(FindPkgConfig)
+PKG_CHECK_MODULES(PC_ITPP itpp)
 
-# TODO: Check on licensing issues here: http://mys.utia.cas.cz:1800/trac/bdm/browser/CMake_modules/FindITPP.cmake?rev=279
+if(PC_ITPP_FOUND)
+  # look for include files
+  FIND_PATH(
+    ITPP_INCLUDE_DIRS
+    NAMES itpp/itbase.h
+    HINTS $ENV{ITPP_DIR}/include
+          ${PC_ITPP_INCLUDE_DIRS}
+          ${CMAKE_INSTALL_PREFIX}/include
+    PATHS /usr/local/include
+          /usr/include
+    )
 
-MESSAGE("ITPP_DIR set to ${ITPP_DIR}" )
+  # look for libs
+  FIND_LIBRARY(
+    ITPP_LIBRARIES
+    NAMES itpp 
+    HINTS $ENV{ITPP_DIR}/lib
+          ${PC_ITPP_LIBDIR}
+          ${CMAKE_INSTALL_PREFIX}/lib/
+          ${CMAKE_INSTALL_PREFIX}/lib64/
+    PATHS /usr/local/lib
+          /usr/local/lib64
+          /usr/lib
+          /usr/lib64
+    )
 
-FIND_PATH(ITPP_INCLUDE_DIR itpp/itbase.h
-${ITPP_DIR}/include
-/usr/pkgs64/include
-/usr/include
-)
+  set(ITPP_FOUND ${PC_ITPP_FOUND})
+endif(PC_ITPP_FOUND)
 
-FIND_LIBRARY(ITPP_LIBRARY
-NAMES itpp itpp_debug
-PATHS ${ITPP_DIR}/libs
-"${ITPP_DIR}\\win32\\lib"
-/usr/pkgs64/lib
-/usr/lib64
-/usr/lib
-NO_DEFAULT_PATH
-)
-
-IF (ITPP_LIBRARY AND ITPP_INCLUDE_DIR)
-SET(ITPP_LIBRARIES ${ITPP_LIBRARY})
-SET(ITPP_FOUND "YES")
-ELSE (ITPP_LIBRARY AND ITPP_INCLUDE_DIR)
-SET(ITPP_FOUND "NO")
-ENDIF (ITPP_LIBRARY AND ITPP_INCLUDE_DIR)
-
-
-IF (ITPP_FOUND)
-IF (NOT ITPP_FIND_QUIETLY)
-MESSAGE(STATUS "Found ITPP: ${ITPP_LIBRARIES}")
-ENDIF (NOT ITPP_FIND_QUIETLY)
-ELSE (ITPP_FOUND)
-IF (ITPP_FIND_REQUIRED)
-MESSAGE(FATAL_ERROR "Could not find ITPP library")
-ENDIF (ITPP_FIND_REQUIRED)
-ENDIF (ITPP_FOUND)
-
-# Deprecated declarations.
-GET_FILENAME_COMPONENT (NATIVE_ITPP_LIB_PATH ${ITPP_LIBRARY} PATH)
-
-MARK_AS_ADVANCED(
-ITPP_LIBRARY
-ITPP_INCLUDE_DIR
-)
+INCLUDE(FindPackageHandleStandardArgs)
+# do not check ITPP_INCLUDE_DIRS, is not set when default include path us used.
+FIND_PACKAGE_HANDLE_STANDARD_ARGS(ITPP DEFAULT_MSG ITPP_LIBRARIES)
+MARK_AS_ADVANCED(ITPP_LIBRARIES ITPP_INCLUDE_DIRS)
