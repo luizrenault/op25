@@ -178,13 +178,14 @@ protected:
     * \return The current size (in bits) of this data_unit.
     */
    virtual uint16_t frame_size() const;
-
-private:
-
    /**
     * A bit vector containing the frame body.
     */
    bit_vector d_frame_body;
+
+
+private:
+
 
 };
 

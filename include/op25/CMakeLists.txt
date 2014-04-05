@@ -25,5 +25,6 @@ install(FILES
     decoder_bf.h
     fsk4_slicer_fb.h
     fsk4_demod_ff.h
-    decoder_ff.h DESTINATION include/op25
+    decoder_ff.h
+    tpp_decoder_ff.h DESTINATION include/op25
 )

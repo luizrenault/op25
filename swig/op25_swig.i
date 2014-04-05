@@ -12,6 +12,7 @@
 #include "op25/fsk4_slicer_fb.h"
 #include "op25/fsk4_demod_ff.h"
 #include "op25/decoder_ff.h"
+#include "op25/tpp_decoder_ff.h"
 %}
 
 
@@ -26,3 +27,6 @@ GR_SWIG_BLOCK_MAGIC2(op25, fsk4_demod_ff);
 
 %include "op25/decoder_ff.h"
 GR_SWIG_BLOCK_MAGIC2(op25, decoder_ff);
+
+%include "op25/tpp_decoder_ff.h"
+GR_SWIG_BLOCK_MAGIC2(op25, tpp_decoder_ff);

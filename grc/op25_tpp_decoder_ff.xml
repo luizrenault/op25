@@ -1,0 +1,15 @@
+<block>
+  <name>Tpp decoder ff</name>
+  <key>op25_tpp_decoder_ff</key>
+  <category>OP25</category>
+  <import>from gnuradio import op25</import>
+  <make>op25.tpp_decoder_ff()</make>
+  <sink>
+    <name>in</name>
+    <type>float</type>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+  </source>
+</block>

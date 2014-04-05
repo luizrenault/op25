@@ -50,6 +50,7 @@ list(APPEND op25_sources
     fsk4_slicer_fb_impl.cc
     fsk4_demod_ff_impl.cc
     decoder_ff_impl.cc
+    tpp_decoder_ff_impl.cc
 )
 
 add_library(gnuradio-op25 SHARED ${op25_sources})
